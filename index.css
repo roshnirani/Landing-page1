@@ -29,6 +29,9 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+#nav h3{
+    display: none;
+}
 #nav h1{
     /*background-color: rgb(234, 255, 0);*/
     height: 100%;
@@ -39,6 +42,28 @@ body{
     font-family: monument;
     font-size: 40px;
     letter-spacing: -1px;
+    position: relative;
+}
+ #nav h1::after{
+     content:"©️" ;
+     font-family: gilroy;
+     font-weight: 400;
+     font-size: 22px;
+     position: absolute;
+     top: 22%;
+     right: 9%;
+ }
+ #nav h1::before{
+    content:"model management" ;
+    font-family: gilroy;
+    font-weight: 400;
+    font-size: 15px;
+    color: #666;
+    letter-spacing: 0.1px;
+    position: absolute;
+    top: 60%;
+    bottom: 22%;
+    right: 18%;
 }
 #nav h2{
     /*background-color: rgb(200, 255, 0);*/
@@ -309,10 +334,12 @@ body{
       /*height: 25vh;*/
       width: 100%;
       /*background-color: red;*/
-      padding: 1vw;
+      padding: 0.5vw;
       white-space: nowrap ;
       overflow-x: hidden;
       overflow-y: hidden;
+      border-top:  2px solid #000;
+      border-bottom: 2px solid #000;
 }
 #marque h1{
     display: inline-block;
@@ -322,14 +349,148 @@ body{
     -webkit-text-stroke: 2px black;
     color: transparent;
     font-family: monument;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     /*background-color: blue;*/
     margin-right: 16px;
+    animation-name: move;
+    animation-duration: 4s;
+    animation-iteration-count: infinite ;
+    animation-timing-function: linear ;
 }
+@keyframes move {
+     from{
+        transition:  translateX(0);
+     }
+     to{
+        transform: translate(calc(-100%  - 20px));
+     }
+}
+
 #footer{
     height: 100%;
     width: 100%;
+}
+
+@media (max-width:600px){
+    body{
+        overflow-x: hidden;
+    }
+    #nav{
+        height: 8vh;
+       
+        margin-top: 20px;
+       padding: 0 5vw;
+
+    }
+    #nav h1{
+       
+        width: 40%;
+        justify-content: flex-start;
+        font-size: 24px;  
+    }
+    #nav h3{
+        display: block;
+    }
+     #nav h1::after{
+         
+         display: none;
+     }
+     #nav h1::before{
+        display: none;
+    }
+    #nav h2{
+        
+        display: none;
+    }
+    #center{
+        height: 50%;
+        width: 100%;
+      
+        padding: 5vw;
     
+    }
+    #content{
+        height: 100%;
+        width: 100%;
+        background-color: blue;
+        position: relative;
+    }
+    #content video{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    #overlay{
+        height: fit-content;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        /*background-color: red;*/
+        padding: 3vw;
+        color: #fff;
+    }
+    #over1{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2vw;
+    }
+    #over1 h1{
+        font-family: monument;
+        font-size: 5.5w;
+        font-weight: 100;
+        
     
+    }
+    #over1 h2{
+        font-size: 2vw;
+        padding: 2vw  3.2vw;
+       /* background-color: blue;*/
+        border-radius: 50%;
+        border: 1px solid #fff;
+        border-bottom: 2px solid #fff;
+    }
+    #over2{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 2px solid #fff ;
+        padding: 0.9vw 0;
+    }
+    #over2 h4{
+        font-size:3vw ;
+        font-weight: 500;
+    }
+    #over2 img{
+        height: 5vw;
+    }
+    #scrol{
+        height: 20vh;
+        width: 100%;
+        
+        /*padding: 1vw;*/
+        white-space: nowrap;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    #container{
+        height: 100%;
+        width: 210%;
+        animation: anime;
+        animation-duration: 10s;
+        display: inline-block;
+        padding: 2vw;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    #scrol img{
+        height: 95%;
+        border-radius: 50%;
+        width: 15.3%;
+        margin: 1.5vw;
+        object-fit: cover;
+        object-position:50% 30%;
+    }
 }
 
